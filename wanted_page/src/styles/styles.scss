@@ -2,8 +2,12 @@
 
 @import './base/_nomalize.scss';
 @import './base/_reset.scss';
+@import './base/globals';
 
 @import './mixins/responsive';
+@import './mixins/positions';
+@import './mixins/flexbox';
+
 @import './layouts/grids';
 
 @import '/src/Pages/Main/main';
