@@ -1,0 +1,10 @@
+@import './constants/breakpoints';
+
+@import './base/_nomalize.scss';
+@import './base/_reset.scss';
+
+@import './mixins/responsive';
+@import './layouts/grids';
+
+@import '/src/Pages/Main/main';
+@import '/src/Components/Nav/nav.scss';
