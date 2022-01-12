@@ -9,10 +9,12 @@ const Nav = () => {
       <VscBell />
       <BsList />
       <VscSearch />
-      blue Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vel, porro?
-      Nam consequuntur architecto deleniti doloribus ut fugiat sint amet. Minus
-      quis debitis voluptates corrupti enim necessitatibus sequi! Nesciunt,
-      nobis eum!
+      <p>
+        blue Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vel,
+        porro? Nam consequuntur architecto deleniti doloribus ut fugiat sint
+        amet. Minus quis debitis voluptates corrupti enim necessitatibus sequi!
+        Nesciunt, nobis eum!
+      </p>
     </IconContext.Provider>
   );
 };
