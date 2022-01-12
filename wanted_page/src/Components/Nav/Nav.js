@@ -1,20 +1,69 @@
 import React from 'react';
 import { IconContext } from 'react-icons';
 import { VscBell, VscSearch } from 'react-icons/vsc';
-import { BsList } from 'react-icons/bs';
+import { BsList, BsThreeDots } from 'react-icons/bs';
 
 const Nav = () => {
   return (
     <IconContext.Provider value={{ size: '1.4em' }}>
-      <VscBell />
-      <BsList />
-      <VscSearch />
-      <p>
-        blue Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vel,
-        porro? Nam consequuntur architecto deleniti doloribus ut fugiat sint
-        amet. Minus quis debitis voluptates corrupti enim necessitatibus sequi!
-        Nesciunt, nobis eum!
-      </p>
+      <header>
+        <h1 className="logoName">wanted</h1>
+
+        <button type="button" aria-label="메뉴 열기 버튼">
+          <BsList />
+        </button>
+
+        <nav>
+          <h2 className="visually-hidden">메뉴</h2>
+          <ul>
+            <li className="sm-only">
+              <a href="#!">홈</a>
+            </li>
+            <li>
+              <a href="#!">채용</a>
+            </li>
+            <li>
+              <a href="#!">이벤트</a>
+            </li>
+            <li className="sm-hidden">
+              <a href="#!">직군별 연봉</a>
+            </li>
+            <li className="sm-hidden">
+              <a href="#!">이력서</a>
+            </li>
+            <li className="sm-hidden">
+              <a href="#!">커뮤니티</a>
+            </li>
+            <li className="sm-hidden">
+              <a href="#!">프리랜서</a>
+            </li>
+            <li className="sm-hidden">
+              <a href="#!">AI 합격예측</a>
+            </li>
+          </ul>
+        </nav>
+
+        <button type="button" aria-label="검색창">
+          <VscSearch />
+        </button>
+        <button type="button" aria-label="알림 버튼">
+          <VscBell />
+        </button>
+        <button type="button" aria-label="마이메뉴 열기 버튼">
+          <div className="sm-hidden myMenu-avator">
+            <img
+              src="https://w.namu.la/s/ccf60cdc6cc55d8ed26841a7eb7363c6b026845a584d70141e14c202b1dbdb5b81ecd1292f6881435ccfa6fc16e7731cea6a7f7afa6763842623a49f2ac65e72f972951e160eb536de050761f16b058e7f0a75a2a92b886e8ffa6a73ffcee394"
+              alt="avator"
+            />
+          </div>
+        </button>
+
+        <button className="lg-only" type="button" aria-label="기업정보 버튼">
+          기업 서비스
+        </button>
+      </header>
+
+      <BsThreeDots />
     </IconContext.Provider>
   );
 };
