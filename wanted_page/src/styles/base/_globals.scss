@@ -32,27 +32,27 @@
 .lg-only {
   //? Desktop
   @media screen and (max-width: $lg-breakpoint) {
-    display: none !important; /
+    display: none !important;
   }
 }
 
 .sm-hidden {
   //! Mobile 구간에서는 display:none 해라.
   @media screen and (max-width: $md-breakpoint) {
-    display: none !important; 
+    display: none !important;
   }
 }
 
 .md-hidden {
   //! Tablet 구간에서는 display:none 해라.
   @media screen and (min-width: $md-breakpoint) and (max-width: $lg-breakpoint) {
-    display: none !important; 
+    display: none !important;
   }
 }
 
 .lg-hidden {
   //! Desktop 구간에서는 display:none 해라.
   @media screen and (min-width: $lg-breakpoint) {
-    display: none !important; 
+    display: none !important;
   }
 }
