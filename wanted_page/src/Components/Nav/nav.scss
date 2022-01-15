@@ -1,24 +1,55 @@
-.header {
-  .logoName {
-    font-size: 22px;
-    letter-spacing: -0.5px;
-  }
-  .nav {
-  }
-}
-.myMenu-avator {
-  display: block;
-  height: 32px;
-  width: 32px;
-  overflow: hidden;
-  border: 1px solid #e1e2e3;
-  border-radius: 50%;
+.gnb {
+  height: 110px; //? 모바일
+  border-bottom: 1px solid #dcdcdc;
 
-  img {
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    background-size: cover;
+  .gnb-main {
+    @include flexbox(start);
+    padding: 15px 0px;
+
+    .logoName {
+      font-size: 24px;
+      letter-spacing: -0.5px;
+    }
+    .gnb-icon-button {
+      margin-right: 15px;
+    }
+  }
+  .gnb-nav {
+    @include flexbox(between);
+
+    .gnb-left {
+      font-size: 13px;
+      font-weight: 400;
+      .gnb-nav-list {
+        @include flexbox;
+        .gnb-nav-item:first-child {
+          padding-left: 5px;
+        }
+        .gnb-nav-item {
+          padding: 0px 8px;
+        }
+      }
+    }
+    .gnb-right {
+      .gnb-icon-button {
+        padding: 0px 5px;
+      }
+    }
+    .myMenu-avator {
+      display: block;
+      height: 32px;
+      width: 32px;
+      overflow: hidden;
+      border: 1px solid #e1e2e3;
+      border-radius: 50%;
+
+      img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        background-size: cover;
+      }
+    }
   }
 }
