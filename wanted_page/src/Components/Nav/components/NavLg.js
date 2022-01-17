@@ -1,14 +1,16 @@
 import React from 'react';
-
 import GnbLeft from './GnbLeft';
 import GnbRight from './GnbRight';
-const NavLg = () => {
-  return (
-    <>
-      <GnbLeft />
-      <GnbRight />
-    </>
-  );
-};
+
+class NavLg extends React.Component {
+  render() {
+    return (
+      <>
+        <GnbLeft />
+        <GnbRight />
+      </>
+    );
+  }
+}
 
 export default NavLg;
