@@ -1,6 +1,14 @@
 import React from 'react';
+import API from '../../config';
+import DATA from '../../data/watnedBanner.json';
+import BannerCarousel from './BannerCarousel';
 
 class Main extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {};
+  }
+
   render() {
     return (
       <>
@@ -8,9 +16,7 @@ class Main extends React.Component {
           <div className="container">
             <div className="row">
               <div className="col-sm-4">
-                {/* {imgSrc.map((el, index) => (
-                  <img src={el.src} alt="이미지" key={index} />
-                ))} */}
+                <BannerCarousel />
               </div>
             </div>
           </div>
