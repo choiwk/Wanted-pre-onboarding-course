@@ -16,12 +16,12 @@ const CarouselBtn = ({ bannerTotalNum, slideRef }) => {
 
   useEffect(() => {
     setTimeout(() => {
-      setBannerSlide((next) => {
-        if (next < bannerTotalNum - 1) {
-          return next + 1;
+      setBannerSlide((bannerSlide) => {
+        if (bannerSlide < bannerTotalNum - 1) {
+          return bannerSlide + 1;
         } else return 0;
       });
-    }, 2000);
+    }, 3000);
   });
 
   const prevBtnFunc = () => {
