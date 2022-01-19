@@ -43,12 +43,6 @@ const CarouselBtn = ({ bannerTotalNum, slideRef }) => {
   );
 };
 
-// const ButtonGroup = styled.div`
-//   border: 1px solid red;
-//   position: relative;
-//   ${({ theme }) => theme.flexBox('between')};
-// `;
-
 const SlidePrevBtn = styled.button.attrs({
   type: 'button',
   alt: '광고 이전 버튼',

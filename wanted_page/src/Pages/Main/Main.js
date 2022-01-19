@@ -1,6 +1,4 @@
 import React from 'react';
-import API from '../../config';
-import DATA from '../../data/watnedBanner.json';
 import BannerCarousel from './Carousel/BannerCarousel';
 
 class Main extends React.Component {
