@@ -14,6 +14,16 @@ const CarouselBtn = ({ bannerTotalNum, slideRef }) => {
     slideRef.current.style.transform = `translateX(-${bannerSlide}00%)`;
   }, [slideRef, bannerSlide]);
 
+  useEffect(() => {
+    setTimeout(() => {
+      setBannerSlide((next) => {
+        if (next < bannerTotalNum - 1) {
+          return next + 1;
+        } else return 0;
+      });
+    }, 2000);
+  });
+
   const prevBtnFunc = () => {
     setBannerSlide(bannerSlide === 0 ? bannerTotalNum - 1 : bannerSlide - 1);
   };
