@@ -12,5 +12,5 @@
 ![Carousel](https://user-images.githubusercontent.com/77766718/150103427-4e3d6d71-70bd-4d3b-8fc3-0dd33929ce6e.gif)
 
 
-- netlify 오류..
+- netlify 배포 오류..
 https://elated-hugle-b97c74.netlify.app
