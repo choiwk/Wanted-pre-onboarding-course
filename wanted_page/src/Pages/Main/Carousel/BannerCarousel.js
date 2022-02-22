@@ -1,87 +1,79 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import styled from 'styled-components';
 import CarouselBtn from './CarouselBtn';
+import carouselData from '../../../data/carouselData';
 
-const BannerCarousel = () => {
-  const banner_list = [
-    {
-      banner_id: 1,
-      image: 'https://static.wanted.co.kr/images/banners/1473/41f7b36e.jpg',
-    },
-    {
-      banner_id: 2,
-      image: 'https://static.wanted.co.kr/images/banners/1490/0b775035.jpg',
-    },
-    {
-      banner_id: 3,
-      image: 'https://static.wanted.co.kr/images/banners/1468/3df61cbc.jpg',
-    },
-    {
-      banner_id: 4,
-      image: 'https://static.wanted.co.kr/images/banners/1484/b2853456.jpg',
-    },
-    {
-      banner_id: 5,
-      image: 'https://static.wanted.co.kr/images/banners/1487/0d36f0b5.jpg',
-    },
-    {
-      banner_id: 6,
-      image: 'https://static.wanted.co.kr/images/banners/1486/fba2df30.jpg',
-    },
-  ];
+function BannerCarousel() {
+  const [currentIndex, setCurrentIndex] = useState(1);
 
-  const BANNER_TOTAL_NUM = banner_list.length;
-  const slideRef = useRef(null);
+  const BANNER_TOTAL_NUM = carouselData.length;
+  console.log(currentIndex);
+
+  const handleSlide = (slideCounter) => {
+    slideCounter < 0
+      ? (slideCounter = BANNER_TOTAL_NUM - 1)
+      : slideCounter > BANNER_TOTAL_NUM - 1
+      ? (slideCounter = 0)
+      : setCurrentIndex(0);
+
+    setCurrentIndex(slideCounter);
+  };
+
+  const handleSwipe = (direction) => {
+    console.log(`${100 / BANNER_TOTAL_NUM}`);
+    console.log(`${0.5 + currentIndex}`);
+    console.log(`${(-100 / BANNER_TOTAL_NUM) * (0.5 + currentIndex)}%`);
+    handleSlide(currentIndex + direction);
+  };
 
   return (
-    <>
-      <SliderSection>
-        <SliderContainer>
-          <div className="container">
-            <div className="row">
-              <div
-                className="col-sm-4"
-                style={{ display: 'flex' }}
-                ref={slideRef}
-              >
-                {banner_list.map((banner, index) => (
-                  <SliderItem key={index}>
-                    <img src={banner.image} alt={`광고 이미지 ${index}`} />
-                  </SliderItem>
-                ))}
-              </div>
-            </div>
-          </div>
-        </SliderContainer>
-        <CarouselBtn
-          className={'lg-only'}
-          bannerTotalNum={BANNER_TOTAL_NUM}
-          slideRef={slideRef}
-        />
-      </SliderSection>
-    </>
+    <Slider>
+      <SliderTrack
+        style={{
+          transform: `translateX(${
+            (-100 / BANNER_TOTAL_NUM) * (0.5 + currentIndex)
+          }%)`,
+        }}
+      >
+        {carouselData.map((banner, index) => (
+          <SliderItem key={index}>
+            <img src={banner.image} alt={`광고 이미지 ${index}`} />
+          </SliderItem>
+        ))}
+      </SliderTrack>
+      <CarouselBtn handleSwipe={handleSwipe} />
+    </Slider>
   );
-};
+}
 
-const SliderSection = styled.div`
-  width: 100%;
+const Slider = styled.div`
+  margin-top: 20px;
 `;
 
-const SliderContainer = styled.ul`
-  ${({ theme }) => theme.flexBox('between')};
-  overflow: hidden;
+const SliderTrack = styled.ul`
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  width: fit-content;
+  left: 50%;
 `;
 
 const SliderItem = styled.li`
-  position: relative;
+  list-style: none;
+  border: 2px dotted hotpink;
+
   img {
     height: 183px;
-    padding: 20px 10px 0;
+    padding: 0 10px;
     object-fit: cover;
+    cursor: pointer;
     @media screen and (min-width: 991px) {
-      padding: 25px 12px 0;
       height: 300px;
     }
+  }
+  :hover {
+    filter: brightness(50%);
   }
 `;
 

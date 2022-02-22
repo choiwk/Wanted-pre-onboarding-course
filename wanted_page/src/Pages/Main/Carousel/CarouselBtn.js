@@ -6,37 +6,13 @@ import {
   MdOutlineArrowForwardIos,
 } from 'react-icons/md';
 
-const CarouselBtn = ({ bannerTotalNum, slideRef }) => {
-  const [bannerSlide, setBannerSlide] = useState(2);
-
-  useEffect(() => {
-    slideRef.current.style.transition = 'all 0.5s ease-in-out';
-    slideRef.current.style.transform = `translateX(-${bannerSlide}00%)`;
-  }, [slideRef, bannerSlide]);
-
-  useEffect(() => {
-    setTimeout(() => {
-      setBannerSlide((bannerSlide) => {
-        if (bannerSlide < bannerTotalNum - 1) {
-          return bannerSlide + 1;
-        } else return 0;
-      });
-    }, 3000);
-  });
-
-  const prevBtnFunc = () => {
-    setBannerSlide(bannerSlide === 0 ? bannerTotalNum - 1 : bannerSlide - 1);
-  };
-
-  const nextBtnFunc = () => {
-    setBannerSlide(bannerSlide === bannerTotalNum - 1 ? 0 : bannerSlide + 1);
-  };
+const CarouselBtn = ({ handleSwipe }) => {
   return (
     <IconContext.Provider value={{ size: '16px' }}>
-      <SlidePrevBtn onClick={prevBtnFunc}>
+      <SlidePrevBtn direction="prev" onClick={() => handleSwipe(-1)}>
         <MdOutlineArrowBackIos style={{ paddingTop: '2px' }} />
       </SlidePrevBtn>
-      <SlideNextBtn onClick={nextBtnFunc}>
+      <SlideNextBtn direction="next" onClick={() => handleSwipe(1)}>
         <MdOutlineArrowForwardIos style={{ paddingTop: '2px' }} />
       </SlideNextBtn>
     </IconContext.Provider>
