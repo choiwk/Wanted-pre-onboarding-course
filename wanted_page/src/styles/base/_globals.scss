@@ -1,0 +1,58 @@
+.visually-hidden {
+  //? 마크업을 하다보면 우리 눈에는 텍스트 또는 아이콘(이)가 존재하지 않지만 텍스트를 브라우저에게 전달해야하는 케이스들이 생긴다.(시각적으로 불편한 분들)
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+.sm-only {
+  //? Mobile
+  @media screen and (min-width: $md-breakpoint) {
+    display: none !important;
+  }
+}
+
+.md-only {
+  //? Tablet
+  @media screen and (max-width: $md-breakpoint) {
+    display: none !important;
+  }
+
+  @media screen and (min-width: $lg-breakpoint) {
+    display: none !important;
+  }
+}
+
+.lg-only {
+  //? Desktop
+  @media screen and (max-width: $lg-breakpoint) {
+    display: none !important;
+  }
+}
+
+.sm-hidden {
+  //! Mobile 구간에서는 display:none 해라.
+  @media screen and (max-width: $md-breakpoint) {
+    display: none !important;
+  }
+}
+
+.md-hidden {
+  //! Tablet 구간에서는 display:none 해라.
+  @media screen and (min-width: $md-breakpoint) and (max-width: $lg-breakpoint) {
+    display: none !important;
+  }
+}
+
+.lg-hidden {
+  //! Desktop 구간에서는 display:none 해라.
+  @media screen and (min-width: $lg-breakpoint) {
+    display: none !important;
+  }
+}
