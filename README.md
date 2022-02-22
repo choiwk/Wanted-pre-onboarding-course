@@ -1,6 +1,3 @@
-# Wanted-pre-onboarding-course
-원티드 프리온보딩 프론트엔드 선발 과제
-
 # 원티드 Pre-onBoarding 프론트엔드 과제
 
 #### 🏗 컴포넌트 구조도
@@ -45,4 +42,4 @@
 - Carousel 구현
 - Carousel autoPlay 
 
-- ![slider_1](https://user-images.githubusercontent.com/77766718/155143948-74d6de27-e62d-4f49-9e04-aaa3373025fd.gif)
+![slider_1](https://user-images.githubusercontent.com/77766718/155143948-74d6de27-e62d-4f49-9e04-aaa3373025fd.gif)
