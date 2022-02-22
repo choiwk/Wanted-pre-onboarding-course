@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import styled from 'styled-components';
 import CarouselBtn from './CarouselBtn';
 import carouselData from '../../../data/carouselData';
@@ -7,7 +7,28 @@ function BannerCarousel() {
   const [currentIndex, setCurrentIndex] = useState(1);
 
   const BANNER_TOTAL_NUM = carouselData.length;
-  console.log(currentIndex);
+
+  const useInterval = (callback, delay) => {
+    const saveCallback = useRef();
+
+    useEffect(() => {
+      saveCallback.current = callback;
+    }, [callback]);
+
+    useEffect(() => {
+      function tick() {
+        saveCallback.current();
+      }
+      if (delay !== null) {
+        let id = setInterval(tick, delay);
+        return () => clearInterval(id);
+      }
+    }, [delay]);
+  };
+
+  useInterval(() => {
+    handleSlide(currentIndex + 1);
+  }, 2000);
 
   const handleSlide = (slideCounter) => {
     slideCounter < 0
@@ -20,9 +41,6 @@ function BannerCarousel() {
   };
 
   const handleSwipe = (direction) => {
-    console.log(`${100 / BANNER_TOTAL_NUM}`);
-    console.log(`${0.5 + currentIndex}`);
-    console.log(`${(-100 / BANNER_TOTAL_NUM) * (0.5 + currentIndex)}%`);
     handleSlide(currentIndex + direction);
   };
 
@@ -51,6 +69,7 @@ const Slider = styled.div`
 `;
 
 const SliderTrack = styled.ul`
+  transition: all 500ms ease-in-out;
   position: relative;
   display: flex;
   flex-direction: row;
